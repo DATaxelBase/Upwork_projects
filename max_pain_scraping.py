@@ -20,33 +20,13 @@ chromedriver_autoinstaller.install()  # Check if the current version of chromedr
                                       # and if it doesn't exist, download it automatically,
                                       # then add chromedriver to path
 
-chrome_options = webdriver.ChromeOptions()    
-# Add your options as needed    
-options = [
-  # Define window size here
-   "--window-size=1200,1200",
-    "--ignore-certificate-errors"
- 
-    #"--headless",
-    #"--disable-gpu",
-    #"--window-size=1920,1200",
-    #"--ignore-certificate-errors",
-    #"--disable-extensions",
-    #"--no-sandbox",
-    #"--disable-dev-shm-usage",
-    #'--remote-debugging-port=9222'
-]
-
-for option in options:
-    chrome_options.add_argument(option)
-
     
-driver = webdriver.Chrome(options = chrome_options)
+driver = webdriver.Chrome()
 # define the scope
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 
 # add credentials to the account
-creds = ServiceAccountCredentials.from_json_keyfile_name('./scraping-uploading-02f2de4149d0.json', scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name('scraping-uploading-02f2de4149d0.json', scope)
 
 # authorize the clientsheet 
 client = gspread.authorize(creds)
