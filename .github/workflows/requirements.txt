@@ -4,4 +4,6 @@ requests==2.28.1
 lxml
 html5lib
 beautifulsoup4==4.11.1
+gspread
+
 
