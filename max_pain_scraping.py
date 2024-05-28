@@ -43,7 +43,7 @@ for el in range(2,len(records_data)):
         max_pain = first_tab_values[2]
         #print(max_pain)
         val_max_pain = re.sub("\." ,"," ,max_pain.split('$')[1])
-        sheet_instance.update_cell(el+1,3,','.join(re.sub('\.',','val_max_pain).split(',')[:2]))
+        sheet_instance.update_cell(el+1,3,','.join(re.sub('\.',',val_max_pain).split(',')[:2]))
     except:
         issue_on.append(records_data[el])
         continue
