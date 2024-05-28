@@ -3,7 +3,6 @@
 import gspread
 import pandas as pd
 from oauth2client.service_account import ServiceAccountCredentials
-from datetime import datetime
 import time
 import re
 from selenium import webdriver
@@ -42,11 +41,9 @@ for el in range(2,len(records_data)):
     first_tab_values = [i.text for i in driver.find_elements(By.XPATH,'//table[@class = "table table-striped table-bordered"]//tr//td[@class ="AlignRight"]')[:4]]
     try:
         max_pain = first_tab_values[2]
-        print(max_pain)
+        #print(max_pain)
         sheet_instance.update_cell(el+1,3,re.sub("\." ,"," ,max_pain.split('$')[1]))
     except:
         issue_on.append(records_data[el])
         continue
-tdy = datetime.today().strftime('%Y-%m-%d')
-with open('Ticker missing values-'+tdy+'.txt', mode = 'wb')as file:
-    file.write(issue_on)
+print(issue_on)
