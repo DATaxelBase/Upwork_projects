@@ -40,6 +40,14 @@ issue_on = []
 for el in range(2,6):
     driver.get('https://maximum-pain.com/options/'+records_data[el]) #Access to element
     time.sleep(3)
+    first_tab_values = [i.text for i in driver.find_elements(By.XPATH,'//table[@class = "table table-striped table-bordered"]//tr//td[@class ="AlignRight"]')[:4]]
+    try:
+        max_pain = first_tab_values[2]
+        print(max_pain)
+        sheet_instance.update_cell(el+1,3,re.sub("\." ,"," ,max_pain.split('$')[1]))
+    except:
+        issue_on.append(records_data[el])
+        continue
     print(driver.title)
     with open('./Action_Results.txt', 'w') as f:
         f.write(f"{driver.title}\n")
