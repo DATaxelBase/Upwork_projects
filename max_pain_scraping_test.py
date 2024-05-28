@@ -37,8 +37,9 @@ sheet_instance = sheet.get_worksheet(0)
 records_data = sheet_instance.col_values(1)
 
 issue_on = []
-for el in range(2,len(records_data)):
+for el in range(2,6):
     driver.get('https://maximum-pain.com/options/'+records_data[el]) #Access to element
+    time.sleep(3)
     print(driver.title)
-    with open('./Action_Results.txt', 'wb') as f:
+    with open('./Action_Results.txt', 'w') as f:
         f.write(f"{driver.title}\n")
