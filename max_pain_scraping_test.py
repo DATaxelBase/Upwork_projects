@@ -7,6 +7,7 @@ from datetime import datetime
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import re
 from selenium.common import exceptions
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options
@@ -36,7 +37,7 @@ sheet = client.open('Test_deployment')#Name of sheet
 sheet_instance = sheet.get_worksheet(0)
 records_data = sheet_instance.col_values(1)
 print(records_data)
-sheet_instance.update_cell(2,2,'Test')
+#sheet_instance.update_cell(2,2,'Test')
 issue_on = []
 for el in range(2,6):
     driver.get('https://maximum-pain.com/options/'+records_data[el]) #Access to element
