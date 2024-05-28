@@ -37,7 +37,7 @@ records_data = sheet_instance.col_values(1)
 issue_on = []
 for el in range(2,len(records_data)):
     driver.get('https://maximum-pain.com/options/'+records_data[el]) #Access to element
-    time.sleep(4)
+    time.sleep(3.5)
     first_tab_values = [i.text for i in driver.find_elements(By.XPATH,'//table[@class = "table table-striped table-bordered"]//tr//td[@class ="AlignRight"]')[:4]]
     try:
         max_pain = first_tab_values[2]
