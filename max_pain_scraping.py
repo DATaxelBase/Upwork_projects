@@ -5,6 +5,7 @@ import pandas as pd
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 import time
+import re
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common import exceptions
