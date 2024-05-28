@@ -35,7 +35,8 @@ client = gspread.authorize(creds)
 sheet = client.open('Test_deployment')#Name of sheet
 sheet_instance = sheet.get_worksheet(0)
 records_data = sheet_instance.col_values(1)
-
+print(records_data)
+sheet_instance.update_cell(2,2,'Test')
 issue_on = []
 for el in range(2,6):
     driver.get('https://maximum-pain.com/options/'+records_data[el]) #Access to element
