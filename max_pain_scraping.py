@@ -41,9 +41,11 @@ for el in range(2,len(records_data)):
     first_tab_values = [i.text for i in driver.find_elements(By.XPATH,'//table[@class = "table table-striped table-bordered"]//tr//td[@class ="AlignRight"]')[:4]]
     try:
         max_pain = first_tab_values[2]
+        date_pain = first_tab_values[0]
         #print(max_pain)
         val = max_pain.split('$')[1]
         sheet_instance.update_cell(el+1,3,val)
+        sheet_instance.update_cell(el+1,4,date_pain)
     except:
         issue_on.append(records_data[el])
         continue
