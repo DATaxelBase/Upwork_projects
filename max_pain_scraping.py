@@ -29,8 +29,8 @@ scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/aut
 
 # add credentials to the account
 data = os.environ['google_creds']
-print(type(data),'\n')
-print(data)
+print('-------\n',type(data),'\n')
+print('-------\n',data,'-------')
 creds = ServiceAccountCredentials.from_json_keyfile_dict(data, scope)
 # authorize the clientsheet 
 client = gspread.authorize(creds)
