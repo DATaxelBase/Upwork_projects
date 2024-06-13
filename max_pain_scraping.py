@@ -6,6 +6,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 import time
 import re
 import os
+import ast
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common import exceptions
@@ -28,7 +29,7 @@ scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/aut
 
 # add credentials to the account
 data = os.environ['google_creds']
-creds = ServiceAccountCredentials.from_json_keyfile_dict(eval(data), scope)
+creds = ServiceAccountCredentials.from_json_keyfile_dict(ast.literal_eval(data), scope)
 # authorize the clientsheet 
 client = gspread.authorize(creds)
 sheet = client.open('Yvan')#Name of sheet
