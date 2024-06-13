@@ -27,7 +27,7 @@ driver = webdriver.Chrome()
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 
 # add credentials to the account
-data = os.environ['GOOGLE_CREDENTIALS']
+data = os.environ['google_creds']
 creds = ServiceAccountCredentials.from_json_keyfile_dict(eval(data), scope)
 # authorize the clientsheet 
 client = gspread.authorize(creds)
