@@ -5,6 +5,7 @@ import pandas as pd
 from oauth2client.service_account import ServiceAccountCredentials
 import time
 import re
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common import exceptions
@@ -20,13 +21,26 @@ chromedriver_autoinstaller.install()  # Check if the current version of chromedr
                                       # and if it doesn't exist, download it automatically,
                                       # then add chromedriver to path
 
-    
+  
 driver = webdriver.Chrome()
 # define the scope
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 
 # add credentials to the account
-creds = ServiceAccountCredentials.from_json_keyfile_name('scraping-uploading-02f2de4149d0.json', scope)
+data = {
+  "type": os.environ["type"],
+  "project_id": os.environ["project_id"],
+  "private_key_id": os.environ["private_key_id"],
+  "private_key": os.environ["private_key"]
+  "client_email": os.environ["client_email"],
+  "client_id": os.environ["client_id"],
+  "auth_uri": os.environ["auth_uri"],
+  "token_uri": os.environ["token_uri"],
+  "auth_provider_x509_cert_url": os.environ["auth_provider_x509_cert_url"],
+  "client_x509_cert_url": os.environ["client_x509_cert_url"],
+  "universe_domain": os.environ["universe_domain"]
+}
+creds = ServiceAccountCredentialsfrom_json_keyfile_dict(data, scope)
 
 # authorize the clientsheet 
 client = gspread.authorize(creds)
