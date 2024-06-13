@@ -40,8 +40,7 @@ data = {
   "client_x509_cert_url": os.environ["client_x509_cert_url"],
   "universe_domain": os.environ["universe_domain"]
 }
-creds = ServiceAccountCredentialsfrom_json_keyfile_dict(data, scope)
-
+creds = ServiceAccountCredentials.from_json_keyfile_dict(data, scope)
 # authorize the clientsheet 
 client = gspread.authorize(creds)
 sheet = client.open('Yvan')#Name of sheet
