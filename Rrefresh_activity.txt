@@ -1,1 +1,1 @@
-This file will allow to extend activity period in repository.
+New check. This file will allow to extend activity period in repository.
